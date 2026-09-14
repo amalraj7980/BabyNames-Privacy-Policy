@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Baby Names Together</title>
+<meta name="robots" content="noindex">
+<style>
+  body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    background: #F7EFE8;
+    color: #3A2E2A;
+  }
+</style>
+<script>
+(function () {
+  var path = window.location.pathname || "";
+  var match = path.match(/\/s\/([^/]+)\/?$/);
+  var root = path.replace(/\/s\/.*$/, "") || "";
+
+  if (match) {
+    var name = decodeURIComponent(match[1]).replace(/_/g, " ");
+    var next = new URL(root + "/share.html", window.location.origin);
+    next.searchParams.set("name", name);
+
+    var extra = new URLSearchParams(window.location.search);
+    extra.forEach(function (value, key) {
+      if (key !== "name" && key !== "n") {
+        next.searchParams.set(key, value);
+      }
+    });
+
+    window.location.replace(next.toString());
+    return;
+  }
+
+  window.location.replace(root + "/index.html");
+})();
+</script>
+</head>
+<body>
+  <p>Opening shared name…</p>
+</body>
+</html>
