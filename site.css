@@ -99,9 +99,9 @@ summary:focus-visible {
 }
 
 .brand img {
-  width: 52px;
-  height: 52px;
-  border-radius: 16px;
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
   box-shadow: 0 8px 18px rgba(58, 46, 42, 0.08);
   background: #fff;
 }
